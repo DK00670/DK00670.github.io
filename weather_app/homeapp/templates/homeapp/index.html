@@ -45,6 +45,7 @@
             <div class="columns">
                 <div class="column is-offset-4 is-4">
                     <form method="POST">
+                        {% csrf_token %}
                         <div class="field has-addons">
                             <div class="control is-expanded">
                                 <input class="input" name="city" type="text" placeholder="City Name">
