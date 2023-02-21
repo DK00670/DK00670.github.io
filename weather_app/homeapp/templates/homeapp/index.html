@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Weather Report</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" />
+</head>
+
+<body>
+    <script src="/static/js/script.js"></script>
+    <section class="section" 
+             style="padding: 0px 0px 0px 0px; background-color:rgb(0,70,130)">
+        <div class="container" style="margin-left: 3px">
+            <img src="/static/images/surrey-logo.svg" width="144px" height="44px">
+        </div>
+    </section>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    My Weather Report
+                    <span id="welcome" hidden></span>
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        console.log("63371ff2-145e-497f-bd2a-4c6de2008727");
+        if ("cv00218@surrey.ac.uk".length!=0) {
+            greetingBox = document.getElementById("welcome");
+            greetingBox.removeAttribute("hidden");
+            greetingBox.innerHTML = " (" + "cv00218@surrey.ac.uk" + ")"
+        }
+    </script>
+
+    <section class="hero is-info">
+        <marquee behavior="scroll" direction="left" id="cityinfo"></marquee>
+    </section>
+    <section class="section"
+             style="background-image:url(/static/images/metofficegovuk_heroXLarge.jpeg)">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" name="city" type="text" placeholder="City Name">
+                            </div>
+                            <div class="control">
+                                <button class="button is-info" onclick="onPageRefresh();return true;">
+                                    Add City
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-64x64">
+                                    <img src="/static/weather-icons/cloudy.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">Reading</span>
+                                        <br>
+                                        <span class="subtitle">8.4° C</span>
+                                        <br> Overcast
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="media-right">
+                                <a href="/delete/Reading" onclick="onPageRefresh();return true;">
+                                    <button class="delete"></button>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-64x64">
+                                    <img src="/static/weather-icons/cloudy.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">Guildford</span>
+                                        <br>
+                                        <span class="subtitle">7.8° C</span>
+                                        <br> Overcast
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="media-right">
+                                <a href="/delete/Guildford" onclick="onPageRefresh();return true;">
+                                    <button class="delete"></button>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border-top:2px solid #000000; margin-bottom:0px;">
+    <footer class="footer has-background-info-light"
+            style="padding-top: 20px;padding-bottom: 25px;">
+    
+    <div class="container">
+        <div class="level">
+          <div class="level-left">
+            <span width="200" class="level-item">
+              Styled by &nbsp;<img src="https://bulma.io/images/bulma-logo.png" alt="Bulma Logo" width="60" />
+            </span>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <div class="content has-text-centered has-text-white-invert">©2022 C.H. Foh</div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </footer>
+
+</body>
+</html>
