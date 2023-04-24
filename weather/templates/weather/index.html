@@ -40,7 +40,10 @@
                         </div>
                     </div>
                     {% if message %}
-                        <div class="notification {{ message_class }}">{{ message }}</div>
+                        <div class="notification {{ message_class }}">
+                            <button class="delete"></button>
+                            <div>{{ message }}</div>
+                        </div>
                     {% endif %}
                 </form>
             </div>
