@@ -4,7 +4,7 @@ from .models import City
 from .forms import CityForm
 
 # Create your views here.
-dic = {"previous_city_count": 0}
+dic = {"previous_city_count": 0, "deleted_city_name": ''}
 
 def index(request):
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=c03afaccd8030b3947fc03cfeb3501f0'
@@ -31,8 +31,9 @@ def index(request):
             message = 'City added successfully!'
             message_class = 'is_success'
             
+    city_deleted_message = ''
     if City.objects.count() == dic["previous_city_count"] - 1:
-        message = 'Succesfully deleted '
+        city_deleted_message = 'Succesfully deleted '
         message_class = 'is_success'
     dic["previous_city_count"] = City.objects.count()
     
@@ -52,10 +53,13 @@ def index(request):
         'weather_data' : weather_data, 
         'form' : form,
         'message' : message,
-        'message_class' : message_class
+        'message_class' : message_class,
+        'city_deleted_message': city_deleted_message,
+        'deleted_city_name': dic["deleted_city_name"],
         }
     return render(request,'weather/index.html', context)
 
 def delete_city(requests, city_name):
+    dic["deleted_city_name"] = city_name
     City.objects.get(name=city_name).delete()
     return redirect('home')
